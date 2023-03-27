@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Mong King Guesthouse</title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			font-family: Arial, sans-serif;
+			text-align: center;
+		}
+		.upper {
+			background-color: #eee;
+			padding: 10px;
+		}
+		.middle {
+			padding: 50px;
+		}
+		.lower {
+			background-color: #eee;
+			padding: 10px;
+		}
+		button {
+			background-color: #4CAF50;
+			color: white;
+			padding: 20px;
+			border: none;
+			border-radius: 10px;
+			font-size: 24px;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<div class="upper">
+		<h1>歡迎光臨旺景賓館/美景賓館<br>Welcome to<br>Mong King / Mei King Guesthouse</h1>
+	</div>
+	<div class="middle">
+		<button onclick="location.href='{{ url_for('index')}}'">賓館資訊<br>Guesthouse<br>Information</button>
+	</div>
+	<!-- <div class="lower">
+		<button>Contact Us</button>
+	</div>
+	-->
+</body>
+</html>

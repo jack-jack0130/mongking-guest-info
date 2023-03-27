@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            text-align: left;
+        }
+        .upper {
+            background-color: #eee;
+            padding: 10px;
+            overflow: hidden;
+        }
+        nav ul li{
+            display:inline-block;
+            list-style-type:none;
+        }
+
+        nav ul li a{
+            display:block;
+            line-height: 1em;
+            padding:0.5em 0.5em;
+            text-decoration: none;
+            color: #1a8d3a;
+            font-size: 24px;
+            background: #f9f9f9;
+            border-radius: 15px
+        }
+
+        .middle {
+            padding: 50px;
+        }
+        .lower {
+            background-color: #eee;
+            padding: 10px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            border: none;
+            border-radius: 10px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <nav class="upper">
+        <ul>
+            <li><a href='{{ url_for('index')}}'>賓館資訊<br>Guesthouse<br>Information</a></li>
+        </ul>
+    </nav>
+    <div class="middle">
+        {% block content %}{% endblock %}
+    </div>
+
+    <!--
+    <footer class="lower">
+        <button>Click me!</button>
+    </footer>
+
+    -->
+</body>
+</html>

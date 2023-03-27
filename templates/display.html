@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Post Table</title>
+    <style>
+      /* Style the page to be easy looking */
+      table {
+        border-collapse: collapse;
+        margin: 20px 0;
+        font-size: 1.1em;
+        font-family: sans-serif;
+        min-width: 400px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+      }
+      
+      th, td {
+        padding: 12px 15px;
+        text-align: center;
+      }
+      
+      th {
+        background-color: #03396c;
+        color: #fff;
+        text-transform: uppercase;
+        font-size: 0.9em;
+      }
+      
+      td {
+        border-bottom: 1px solid #ddd;
+      }
+      
+      tr:nth-child(even) td {
+        background-color: #f3f3f3;
+      }
+      
+      tr:hover td {
+        background-color: #C8C8C8;
+        color: #fff;
+      }
+      
+      /* Style the buttons and select box */
+      #up-btn, #down-btn, #edit-btn, #delete-btn, #title-select ,#undo-btn {
+        margin: 20px 10px;
+        padding: 10px;
+        font-size: 1em;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+        background-color: #03396c;
+        color: #fff;
+      }
+      
+      #title-select {
+        width: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Image</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for post in posts %}
+        <tr>
+          <td>{{ post.id }}</td>
+          <td>{{ post.title }}</td>
+          <td>{{ post.description }}</td>
+          <td>{{ post.image }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <form action="/edit" method="POST" enctype="multipart/form-data">
+      <label for="title-select" style="color:teal; font-weight:500; font-size: 30px ">Select a title to edit or delete:</label>
+      <select name="title" id="title-select">
+        {% for post in posts %}
+        <option value="{{ post.title }}">{{ post.title }}</option>
+        {% endfor %}
+      </select>
+      <button type="submit" id="up-btn" name="up" value="up">UP</button>
+      <button type="submit" id="down-btn" name="down" value="down">DOWN</button>
+      <button type="submit" id="edit-btn" name="edit" value="edit">EDIT</button>
+      <button type="submit" id="delete-btn" name="delete" value="del">Delete</button>
+      <!-- <button type="submit" id="undo-btn" name="undo" value="undo">Undo</button> -->
+    </form>
+  </body>
+</html>

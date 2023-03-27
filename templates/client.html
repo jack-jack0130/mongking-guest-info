@@ -1,0 +1,60 @@
+{% extends 'base.html'%}
+{% block title %}
+
+{% endblock %}
+
+{% block content %}
+  <h1>賓館資訊 Guesthouse Information</h1>
+  <table style="width: 100%;  margin: 0 auto;">
+    {% for post in posts %}
+    <tr class="tableRow">
+      <td class="tableCell" style="width:100%">
+        <a href="{{ url_for('post', id=post.id) }}" >{{ post.title }}</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+
+  <style>
+
+    table {
+      border: 2px solid green;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    a {
+      text-decoration:none;
+      color: #1a8d3a;
+    }
+    .tableRow {
+      position: relative;
+      text-decoration: none;
+      text-align:left;
+      color: inherit;
+      border: 2px solid #bbe6c7;
+      border-bottom: none;
+    }
+    .tableRow:hover,
+    .tableRow:focus {
+      background: #e5f5ec;
+      outline: none;
+    }
+    .tableRow:last-child {
+      border-bottom: 2px solid #bbe6c7;
+    }
+    .tableCell {
+      padding: 18px;
+      border-right: 2px solid #bbe6c7;
+    }
+    .tableCell:last-of-type {
+      border-right: none;
+    }
+    .tableRowLink {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+  </style>
+{% endblock %}

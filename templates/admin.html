@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Create New Blog Post</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+  </head>
+  <body>
+    <h1>Create New Blog Post</h1>
+    <form action = "/addpost"method="POST" enctype="multipart/form-data">
+      <div>
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" required>
+      </div>
+      <div>
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" ></textarea>
+      </div>
+      <div>
+        <label for="image">Upload Image:</label>
+        <input type="file" id="image" name="image">
+      </div>
+      <div>
+        <label for="video">Upload Video:</label>
+        <input type="file" id="video" name="video">
+      </div>
+      <div>
+        <input type="submit" value="Create Post">
+      </div>
+    </form>
+  </body>
+</html>
