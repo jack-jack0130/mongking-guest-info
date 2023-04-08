@@ -4,15 +4,14 @@ from werkzeug.utils import secure_filename
 import os
 import psycopg2
 
-DATABASE_URL = os.environ['DATABASE_URL']
 
-conn = psycopg2.connect(DATABASE_URL, sslmode='require')
 
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database01.db'
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://syxwskkdhrleum:eee65fcc76485977633e78db6288242869b7fad6688a39324773849795a28005@ec2-3-234-204-26.compute-1.amazonaws.com:5432/d2meslrrdssfgt'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://syxwskkdhrleum:eee65fcc76485977633e78db6288242869b7fad6688a39324773849795a28005@ec2-3-234-204-26.compute-1.amazonaws.com:5432/d2meslrrdssfgt'
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://syxwskkdhrleum:eee65fcc76485977633e78db6288242869b7fad6688a39324773849795a28005@ec2-3-234-204-26.compute-1.amazonaws.com:5432/d2meslrrdssfgt'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL').replace("://", "ql://", 1)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['UPLOAD_FOLDER'] = 'static/uploads'
 
